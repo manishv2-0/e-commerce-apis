@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { authMiddleware } = require("../users-app/controllers/User");
-router.get("/", authMiddleware, (req, res) => {
-  res.send("hiiiii");
-});
-
+const {verifyToken,getProducts} = require("./controllers/Products");
+router.get("/",verifyToken,getProducts)
+router.use((req, res) => res.status(404).json({ error: "Url not found" }));
 module.exports = router;

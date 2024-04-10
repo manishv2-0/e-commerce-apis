@@ -1,8 +1,7 @@
 const Usermodel = require("../models/User");
-const { genrateToken, decodeToken } = require("../jwt");
-const User = require("../models/User");
+const { genrateToken, verifyToken, cacheUserdata } = require("../../jwt");
 const uuid = require("uuid");
-const cacheUserdata = {};
+// const  = {};
 const signup = async (req, res) => {
   try {
     const reqbody = req.body;
@@ -80,52 +79,6 @@ const validateSignup = async (req, res, next) => {
   next();
 };
 
-const authMiddleware = async (req, res, next) => {
-  try {
-    const authorization = req.headers.authorization;
-    if (!authorization) {
-      return res.status(401).json({ message: "Unauthorized Request" });
-    }
-
-    const token = authorization.split(" ")[1];
-    const authCheck = await checkAuthorization(token);
-    if (authCheck.error) {
-      return res.status(401).json({ message: authCheck.error });
-    }
-    req.user = authCheck.user;
-    next();
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
-const checkAuthorization = async (token) => {
-  const decoded = decodeToken(token);
-  if (!decoded) {
-    return { error: "Unauthorized Request" };
-  }
-
-  //Checking if user data available in cache oter wise get from db
-  const userid = decoded.id;
-  let user = cacheUserdata[userid];
-  if (!user) {
-    user = await Usermodel.findById(userid).select(
-      "name email mobile gender dob role"
-    );
-    if (!user) {
-      return { error: "User not found" };
-    }
-    cacheUserdata[userid] = user;
-  }
-
-  if (!user) {
-    return { error: "User not found" };
-  }
-
-  return { user };
-};
-
 const profile = async (req, res) => {
   try {
     const { user } = req;
@@ -194,6 +147,6 @@ module.exports = {
   logout,
   validateSignup,
   profile,
-  authMiddleware,
   updateProfile,
+  verifyToken,
 };
