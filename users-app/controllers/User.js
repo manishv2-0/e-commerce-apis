@@ -1,5 +1,5 @@
 const Usermodel = require("../models/User");
-const { genrateToken, verifyToken, cacheUserdata } = require("../../jwt");
+const { genrateToken, verifyToken, cacheUserdata,expireToken } = require("../../jwt");
 const uuid = require("uuid");
 // const  = {};
 const signup = async (req, res) => {
@@ -8,7 +8,7 @@ const signup = async (req, res) => {
     const newUser = new Usermodel(reqbody);
     newUser.setPassword(reqbody.password);
     const user = await newUser.save();
-    const payload = { id: user.id, email: user.email };
+    const payload = { id: user.id, email: user.email , uuid: uuid.v4()};
     const authtoken = genrateToken(payload);
     res
       .status(200)
@@ -28,6 +28,10 @@ const signin = async (req, res) => {
       const isPasswordmatch = await User.validatePassword(password);
       if (isPasswordmatch) {
         const payload = { id: user.id, email: user.email, uuid: uuid.v4() };
+        let userid = user.id;
+        if (cacheUserdata.hasOwnProperty(userid)) {
+          delete cacheUserdata[userid];
+        }
         const authtoken = genrateToken(payload);
         return res
           .status(200)
@@ -43,6 +47,8 @@ const signin = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
+    const token = req.token;
+    expireToken(token);
     return res.status(200).json({ message: "Logout success" });
   } catch (error) {
     return res.status(500).json({ message: "Internal Server Error" });
@@ -126,7 +132,7 @@ const updateProfile = async (req, res) => {
       return res.status(400).json({ message: "Update data can't be empty" });
     }
 
-    const updatedUser = await User.findByIdAndUpdate(user._id, updateData, {
+    const updatedUser = await Usermodel.findByIdAndUpdate(user._id, updateData, {
       new: true,
     }).select("name email mobile gender dob role");
 

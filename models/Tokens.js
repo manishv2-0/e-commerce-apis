@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const {mongoose} = require('../connectToDatabase') ;
 const crypto = require("crypto");
 const TokenSchema = mongoose.Schema(
   {

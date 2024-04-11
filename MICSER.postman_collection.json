@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "59e924d4-122a-4dc5-98a3-1f8615e90bcc",
+		"name": "MICSER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22358658"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products"
+							]
+						},
+						"description": "Get all available products"
+					},
+					"response": []
+				},
+				{
+					"name": "View Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/products/6617b4502d8cb9a49f47af00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"6617b4502d8cb9a49f47af00"
+							]
+						},
+						"description": "View product by product id"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\":\"Iphone 12\",\r\n    \"quantity\":\"5\",\r\n    \"price\":5000,\r\n    \"description\":\"Manufectured by :- Apple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/products/add-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"add-product"
+							]
+						},
+						"description": "Add Product For Admin access only."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\":\"Iphone 14\",\r\n    \"quantity\":\"20\",\r\n    \"price\":\"5000\",\r\n    \"description\":\"Manufectured by :- Apple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/products/update-product/6617b4502d8cb9a49f47af00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"update-product",
+								"6617b4502d8cb9a49f47af00"
+							]
+						},
+						"description": "Update Product Admin access only"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/products/delete-product/6617b5a42d8cb9a49f47af18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"delete-product",
+								"6617b5a42d8cb9a49f47af18"
+							]
+						},
+						"description": "Delete Product admin access only"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Add Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiMWQyM2NiZDY2ZDFkODQxMzRkZCIsImVtYWlsIjoibWFuaXNoQGdtYWlsLmNvbSIsInV1aWQiOiJlMjNiODQ1Yy1jMTZmLTQ2NzYtODc4MS05ZDZiMzdiMjIzOTEiLCJpYXQiOjE3MTI4Mjk5Njh9.VZkyqyYFazaIYJ1g5tiVm-44pAvIK5ARx8H64YLVcF0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\":\"6617b4502d8cb9a49f47af00\",\r\n    \"orderQuantity\":3,\r\n    \"orderAmount\":15000,\r\n    \"address\":\"My address is here\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/orders/add-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"add-order"
+							]
+						},
+						"description": "Add Order For Customer Only."
+					},
+					"response": []
+				},
+				{
+					"name": "View Orders All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Get all available order if loggedin user is customer then only his/her data otherwise all available orders."
+					},
+					"response": []
+				},
+				{
+					"name": "View Orders By Status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/orders/approved",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"approved"
+							]
+						},
+						"description": "Get all available orders by status if loggedin user is customer then only his/her data otherwise all available orders."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/orders/get-order/6617b64a09bea311c13a3953",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"get-order",
+								"6617b64a09bea311c13a3953"
+							]
+						},
+						"description": "Get order data by product id."
+					},
+					"response": []
+				},
+				{
+					"name": "Order Approve/Reject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiNDA0M2NiZDY2ZDFkODQxMzRlOSIsImVtYWlsIjoiYWRtaW5AZWNvbS5jb20iLCJ1dWlkIjoiYjllMjEzNzAtMGVkOS00MTU5LTk3NTMtYmNmMGQwZWZhNWUxIiwiaWF0IjoxNzEyODI5NDk3fQ.TkjS4SmjetJ_EugxaByubvT_VvFUwlq4d8_YCtqjCak",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"orderId\":\"6617b64a09bea311c13a3953\",\r\n   \"status\":\"approved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/orders/update-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"update-order"
+							]
+						},
+						"description": "Approve order by order id only for admin."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Sunil Kumar\",\r\n    \"mobile\":\"8844665522\",\r\n    \"email\":\"admin@ecom.com\",\r\n    \"password\":\"123456\",\r\n    \"gender\":\"male\",\r\n    \"dob\":\"12/15/2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"signup"
+							]
+						},
+						"description": "name : Required  \nmobile: Required  \nemail:Required | Unique | Vaild Email Address  \npassword:Required | Minimum length 6\n\ngender : Required | In male,female,other  \ndob: Required | Valid Date"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"manish@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"signin"
+							]
+						},
+						"description": "Email : Required  \nPassword : Required"
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiMWQyM2NiZDY2ZDFkODQxMzRkZCIsImVtYWlsIjoibWFuaXNoQGdtYWlsLmNvbSIsInV1aWQiOiJkMTNlMDYzYi0xMDAwLTQ5OTgtOWJjYy03YWM3YjJiZjY0MTEiLCJpYXQiOjE3MTI4Mjg5Nzd9.T1fbpy8rBJ4c8Swoaeha1XbZHUiPWIvgQxjISzGEmNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"profile"
+							]
+						},
+						"description": "Get logged in user data."
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiMWQyM2NiZDY2ZDFkODQxMzRkZCIsImVtYWlsIjoibWFuaXNoQGdtYWlsLmNvbSIsInV1aWQiOiJkMTNlMDYzYi0xMDAwLTQ5OTgtOWJjYy03YWM3YjJiZjY0MTEiLCJpYXQiOjE3MTI4Mjg5Nzd9.T1fbpy8rBJ4c8Swoaeha1XbZHUiPWIvgQxjISzGEmNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Manish\",\r\n    \"gender\":\"male\",\r\n    \"dob\":\"12/15/2001\",\r\n    \"mobile\":\"8899665544\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"profile"
+							]
+						},
+						"description": "Update logged in user profile data."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTdiMWQyM2NiZDY2ZDFkODQxMzRkZCIsImVtYWlsIjoibWFuaXNoQGdtYWlsLmNvbSIsInV1aWQiOiJkMTNlMDYzYi0xMDAwLTQ5OTgtOWJjYy03YWM3YjJiZjY0MTEiLCJpYXQiOjE3MTI4Mjg5Nzd9.T1fbpy8rBJ4c8Swoaeha1XbZHUiPWIvgQxjISzGEmNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"logout"
+							]
+						},
+						"description": "Logout User"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const SECRET_KEY = process.env.SECRET_KEY;
-const Usermodel = require('./users-app/models/User');
-
+const Usermodel = require("./users-app/models/User");
+const Tokenmodel = require("./models/Tokens");
 const cacheUserdata = {};
 const genrateToken = (payload) => {
   const token = jwt.sign(payload, SECRET_KEY);
@@ -25,7 +25,15 @@ const verifyToken = async (req, res, next) => {
     if (authCheck.error) {
       return res.status(401).json({ message: authCheck.error });
     }
+
+    //Check if token is expired
+    const isTokenExpired = await Tokenmodel.findOne({ token: token });
+    if (isTokenExpired) {
+      return res.status(401).json({ message: "Unauthorized Request" });
+    }
+
     req.user = authCheck.user;
+    req.token = { token };
     next();
   } catch (error) {
     console.error(error);
@@ -59,4 +67,52 @@ const checkAuthorization = async (token) => {
   return { user };
 };
 
-module.exports = { genrateToken,verifyToken,cacheUserdata};
+const expireToken = async (token) => {
+  try {
+    const tokenExpire = new Tokenmodel(token);
+    return await tokenExpire.save();
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+const isAdmin = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const role = user.role;
+    if (role !== "admin") {
+     return res
+        .status(403)
+        .json({ message: "Access to the requested resource is forbidden" });
+    }
+    next();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const isCustomer = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const role = user.role;
+    if (role !== "customer") {
+     return res
+        .status(403)
+        .json({ message: "Access to this resource is only for customer" });
+    }
+    next();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+module.exports = {
+  genrateToken,
+  verifyToken,
+  cacheUserdata,
+  expireToken,
+  isAdmin,
+  isCustomer
+};
